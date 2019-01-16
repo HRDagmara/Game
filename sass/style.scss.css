@@ -1,0 +1,32 @@
+body {
+	padding: 10px;
+	text-align: center;
+}
+
+button {
+	display: inline-block;
+  padding: 20px 60px;
+  max-width: 100%;
+  margin: 20px;
+    
+	font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  
+  color: #fff;
+  background-color: #3498db;
+	border: 2px solid #3498db;
+  border-radius: 5px;
+    
+	cursor: pointer;
+	text-decoration: none;
+  
+	&:hover, &:active {
+		color: #02ac46;
+		background-color: #fff;
+ 	}
+ }
+#newgame-button {
+    background-color: green;
+  }
