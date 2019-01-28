@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" >
-
 <head>
-  <meta charset="UTF-8">
-  <title>Game</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+<meta charset="UTF-8">
+<title>Game</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-  <div>
-	<button id="paper-button">papier</button>
-  <button id="rock-button">kamień</button>
-  <button id="scissors-button">nożyce</button>
-  <button id="newgame-button">New game</button>
-</div>
-<div id="output"></div>
-  
-  
-
-    <script  src="js/index.js"></script>
-
-
-
-
+	<div>
+		<button id="paper-button" data-move="paper" class="player-move">papier</button>
+		<button id="rock-button" data-move="rock" class="player-move">kamień</button>
+		<button id="scissors-button" data-move="scissors" class="player-move">nożyce</button>
+		<button id="newgame-button">New game</button>
+	</div>
+	<div id="output"></div>
+	<div class="overlay" id="modal-overlay">
+	<div class="modal" id="modal-one">
+		<a href="#" class="close">x</a>
+		<header>Wynik gry</header>
+		<div class="content">
+			<p>Game over, please press the new game button!This is result of the game.</p>
+			<table>
+				<tbody>
+					<tr>
+						<td class="numberround">Numer rundy</td>
+						<td class="playermove">Ruch gracza</td>
+						<td class="computermove">Ruch komputera</td>
+						<td class="win">Wynik rundy</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="js/skrypt.js"></script>
+	<script src="js/index.js"></script>
 </body>
-
 </html>
