@@ -5,7 +5,6 @@ var rockButton = document.getElementById('rock-button');
 var scissorsButton = document.getElementById('scissors-button');
 var newgameButton = document.getElementById('newgame-button');
 var output = document.getElementById('output');
-var modalOne = document.getElementById('modal-one');
 
 var computerChoice;
 var playerChoice;
@@ -53,9 +52,9 @@ newgameButton.addEventListener('click', function(){
 
 var buttons = document.querySelectorAll('.player-move');
 
-for (var i=0; i<buttons.lenght; i++) {
+for (var i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function() {
-    playerChoice = buttons[i].getAttribute('data-move');
+    playerChoice = this.getAttribute('data-move');
     play();
   });
 }
@@ -63,13 +62,13 @@ for (var i=0; i<buttons.lenght; i++) {
 function gameOver() {
   
   if ((playerCounter==roundsOfWin) || (computerCounter==roundsOfWin)) {
-    modalOne.innerHTML = 'Game over, please press the new game button!';
+    output.innerHTML = 'Game over, please press the new game button!';
   }
     
   var addTable = '';
 
   for (var i=0; i<params.progress.length; i++) {
-    addTable += '<td class="numberround">' +(i+1)+'</td><td class="playermove">' + params.progress[i].ruchGracza +'</td><td class="computermove">' + params.progress[i].ruchKomputera +'</td><td class="win">' + params.progress[i].wynikRundy +'</td>';
+    addTable += '<td class="numberround">' +(i)+'</td><td class="playermove">' + params.progress[i].ruchGracza +'</td><td class="computermove">' + params.progress[i].ruchKomputera +'</td><td class="win">' + params.progress[i].wynikRundy +'</td>';
   }
   document.querySelector('#table table').innerHTML=addTable;
 }
