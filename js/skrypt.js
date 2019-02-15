@@ -5,6 +5,7 @@ var rockButton = document.getElementById('rock-button');
 var scissorsButton = document.getElementById('scissors-button');
 var newgameButton = document.getElementById('newgame-button');
 var output = document.getElementById('output');
+var arr = ['paper', 'rock', 'scissors'];
 
 var computerChoice;
 var playerChoice;
@@ -21,17 +22,19 @@ var params = {
   progress: []
 }
 
+toggleButton(true);
+
 function playerMove() {
   computerChoice = Math.floor((Math.random() * 3) +1);
   
-  if (playerChoice === computerChoice) {
+  if (playerChoice == computerChoice) {
     output.innerHTML = 'DRAW!you played the same!';
   } else if (
-   (playerChoice=== 1 && computerChoice === 2)
+   (playerChoice== 1 && computerChoice == 2)
     ||
-    (playerChoice=== 2 && computerChoice === 3)
+    (playerChoice== 2 && computerChoice == 3)
     ||
-    (playerChoice=== 3 && computerChoice === 1)
+    (playerChoice== 3 && computerChoice == 1)
   ) {
     output.innerHTML = 'YOU WON';
     playerCounter++;
@@ -40,14 +43,15 @@ function playerMove() {
     computerCounter++;
   }
   params.progress.push ({
-    ruchGracza: playerChoice,
-    ruchKomputera: computerChoice,
-    wynikRundy: '<br/>' +playerCounter+ ':' +computerCounter
+    ruchGracza: arr[playerChoice - 1],
+    ruchKomputera: arr[computerChoice - 1],
+    wynikRundy: +playerCounter+ ':' +computerCounter
   })
 }
                          
 newgameButton.addEventListener('click', function(){
   roundsOfWin = window.prompt('Ile rund chciałbyś zagrać?');
+  toggleButton(false);
 });
 
 var buttons = document.querySelectorAll('.player-move');
@@ -63,12 +67,13 @@ function gameOver() {
   
   if ((playerCounter==roundsOfWin) || (computerCounter==roundsOfWin)) {
     output.innerHTML = 'Game over, please press the new game button!';
+    toggleButton(true);
   }
     
   var addTable = '';
 
   for (var i=0; i<params.progress.length; i++) {
-    addTable += '<td class="numberround">' +(i)+'</td><td class="playermove">' + params.progress[i].ruchGracza +'</td><td class="computermove">' + params.progress[i].ruchKomputera +'</td><td class="win">' + params.progress[i].wynikRundy +'</td>';
+    addTable += '<tr><td class="numberround">' +(i+1)+'</td><td class="playermove">' + params.progress[i].ruchGracza +'</td><td class="computermove">' + params.progress[i].ruchKomputera +'</td><td class="win">' + params.progress[i].wynikRundy +'</td></tr>';
   }
   document.querySelector('#table table').innerHTML=addTable;
 }
@@ -78,3 +83,8 @@ var play = function() {
   gameOver();
 }
 
+function toggleButton(state) {
+  paperButton.disabled = state;
+  rockButton.disabled = state;
+  scissorsButton.disabled = state;
+}
