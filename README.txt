@@ -1,3 +1,8 @@
-A Pen created at CodePen.io. You can find this one at https://codepen.io/HRDagmara/pen/pQxGgd.
+# Game
+Rock, Paper, Scissors
 
- 
+Technology and solutions:
+
+* HTML5
+* CSS3
+* JavaScript
